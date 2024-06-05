@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"variables_function_visibility.sol": "Deposit"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"variables_function_visibility.sol": {
+			"keccak256": "0x4c100b95ba22ddd464d0491ce1af0e99c755515dd8ebb55beae574e1eb193719",
+			"urls": [
+				"bzz-raw://d37b64911466658e0cc8d91066847f976da91a70867282d709a9c200b1678b24",
+				"dweb:/ipfs/QmQmxKFkJjt6aaKCX5eSjvhiE3m9PggRAjHnVYKtaJK3U9"
+			]
+		}
+	},
+	"version": 1
+}
