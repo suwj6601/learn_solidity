@@ -8,10 +8,16 @@ contract Lottery {
 
     constructor() {
         manager = msg.sender;
+
+        // make manager automatically jojn lottery
+        players.push(payable(msg.sender));
     }
 
     receive() external payable {
         require(msg.value == 0.1 ether);
+
+        // make manger cannot join the lottery
+        // require(this.manager != msg.sender);
 
         players.push(payable(msg.sender));
     }
@@ -35,14 +41,21 @@ contract Lottery {
             );
     }
 
-    function pickWinner() public  {
-        require(msg.sender == manager);
+    function pickWinner() public {
         require(players.length >= 3);
+        require(msg.sender == manager);
+
+        // make manager receove 10% fee of total prize
+        uint256 totalValue = getBalance();
+        uint256 winnerPrize = (totalValue * 90) / 100;
+        uint256 managerFee = (totalValue * 10) / 100;
 
         address payable winner;
         winner = players[random() % (players.length)];
-        winner.transfer(getBalance());
+        winner.transfer(winnerPrize);
 
-        players = new address payable[](0) // resetting the Lottery
+        payable(manager).transfer(managerFee);
+
+        players = new address payable[](0); // resetting the Lottery
     }
 }
